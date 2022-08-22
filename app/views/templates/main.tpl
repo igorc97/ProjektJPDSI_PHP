@@ -27,7 +27,7 @@
                     <ul>
                         <li><a href="generic.html">Informacje</a></li>
                         <li><a href="contact.html">Kontakt</a></li>
-                        <li><a href="{rel_url action='store'}">Sklep</a></li>
+                        <li><a href="{rel_url action='bookList'}">Sklep</a></li>
                         <li>
                             <a href="#">Baza</a>
                             <ul>
