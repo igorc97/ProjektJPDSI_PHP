@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-08-22 15:16:12
+/* Smarty version 4.1.0, created on 2022-08-23 13:49:38
   from 'C:\xampp\htdocs\projektPHP\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6303819cc37548_37277109',
+  'unifunc' => 'content_6304bed28beea3_99164272',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1514dbb05bd1ff49ad9563103a7a4266fa7697d3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projektPHP\\app\\views\\templates\\main.tpl',
-      1 => 1661173723,
+      1 => 1661255245,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6303819cc37548_37277109 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6304bed28beea3_99164272 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -71,12 +71,15 @@ order">Twoje zamówienia</a></li>
                         </li>
                     </ul>
                 </li>
-                <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'register'),$_smarty_tpl ) );?>
-" class="button">Zarejestruj się</a></li>
-                <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'login'),$_smarty_tpl ) );?>
-" class="button">Zaloguj się</a></li>
-                <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'logout'),$_smarty_tpl ) );?>
+
+             <?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>   <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'logout'),$_smarty_tpl ) );?>
 " class="button">Wyloguj</a></li>
+             <?php } else { ?>
+             <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'register'),$_smarty_tpl ) );?>
+" class="button">Zarejestruj się</a></li>
+             <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'login'),$_smarty_tpl ) );?>
+" class="button">Zaloguj się</a></li>
+             <?php }?>
               
             </ul>
 
@@ -94,7 +97,7 @@ register" class="button primary">Zarejestruj się</a></li>
         </ul>
     </section>
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14773780726303819cc33bc6_28723579', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13568988966304bed28bb3d0_07867763', 'content');
 ?>
 
     <!-- Main -->
@@ -235,12 +238,12 @@ store" class="button alt">Przejdź dalej</a></li>
 </body>
 </html><?php }
 /* {block 'content'} */
-class Block_14773780726303819cc33bc6_28723579 extends Smarty_Internal_Block
+class Block_13568988966304bed28bb3d0_07867763 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_14773780726303819cc33bc6_28723579',
+    0 => 'Block_13568988966304bed28bb3d0_07867763',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

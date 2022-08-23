@@ -39,9 +39,12 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="{rel_url action='register'}" class="button">Zarejestruj się</a></li>
-                <li><a href="{rel_url action='login'}" class="button">Zaloguj się</a></li>
-                <li><a href="{rel_url action='logout'}" class="button">Wyloguj</a></li>
+
+             {if count($conf->roles)>0}   <li><a href="{rel_url action='logout'}" class="button">Wyloguj</a></li>
+             {else}
+             <li><a href="{rel_url action='register'}" class="button">Zarejestruj się</a></li>
+             <li><a href="{rel_url action='login'}" class="button">Zaloguj się</a></li>
+             {/if}
               
             </ul>
 
