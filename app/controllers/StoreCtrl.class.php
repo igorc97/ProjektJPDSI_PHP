@@ -24,11 +24,6 @@ public function getForm($source){
         $this->book->title = ParamUtils::getFromRequest('title');
     }
 
-    // if($source == "bookStock"){
-    //     $this->book->book_code = ParamUtils::getFromRequest('book_code');
-    //     $this->book->title = ParamUtils::getFromRequest('title');
-    //     $this->book->borrowed = ParamUtils::getFromRequest('borrowed');
-    // }
 }
 
 public function getURL(){
@@ -79,22 +74,17 @@ public function action_bookInfo(){
         if(!App::getDB()->has("book", ["idBook" => $this->book->id_book])){
             App::getRouter()->redirectTo("bookList");
         }
-        
         # Get book info    
-        //$join = ["[><]author_info" => ["author" => "id_author"]];
         $colum = ["title", "author", "isbn", "publishingHouse", 
                   "releaseDate", "price", "availability", "description"];
         $where = ["idBook" => $this->book->id_book];
         App::getSmarty()->assign('book', FunctionsDB::getRecords("get", "book", null, $colum,$where));
-
-        # Get number of books
-        $book_code = FunctionsDB::getRecords("get", "book",null ,"isbn",$where);
-        $where = ["book_code" => $book_code];  
-        App::getSmarty()->assign('allBooks', FunctionsDB::countRecords("book_stock", $where));     
-
-        $where = ["book_code" => $book_code, "borrowed" => 1];
-        App::getSmarty()->assign('borrowedBooks', FunctionsDB::countRecords("book_stock", $where)); 
-
+        
+        $idk = $this->book->id_book;
+        SessionUtils::store("idk",$idk);
+        $book= FunctionsDB::getRecords("get", "book", null, $colum,$where);
+        SessionUtils::store("bookPrice", $book["price"]);
+    
         # Redirect to page
         $this->generateView("BookInfo.tpl");
     }else{
@@ -102,9 +92,47 @@ public function action_bookInfo(){
     }
 }
 
-    public function add(){
+    public function action_buy(){
+        $date = date("Y-m-d");
+        $dateOfReceive = date("Y-m-d", strtotime("+14 days"));
+            App::getSmarty()->assign('dateOfRec', $dateOfReceive);
 
+        $id_user = SessionUtils::load("idUser", $keep = true);
+        $najnowszyidbook = SessionUtils::load("idk");
+        $bookPrice = SessionUtils::load("bookPrice", $keep = true);
+            try {
+                //insert to myorder working correctly
+                App::getDB()->insert("myorder", [
+                    "dateOfOrder" => $date,
+                    "dateOfReceive" => $dateOfReceive,
+                    "User_idUser" => $id_user
+                ]);
+                //BUT IT WORKS!!! should be a better way to find that id, in that case id order will be anything that has that date
+                $id_order = App::getDB()->get("myorder", "idOrder",[
+                    "dateOfOrder" => $date,
+                    "dateOfReceive" => $dateOfReceive,
+                    "User_idUser" => $id_user
+                ]);
+           
+                App::getDB()->insert("orderbook", [
+                    "price" => $bookPrice,
+                    "Order_idOrder" => $id_order,
+                    "Book_idBook" => $najnowszyidbook
+                ]);
+            } catch (\PDOException $e) {
+                Utils::addErrorMessage('Wystąpił błąd');
+                if (App::getConf()->debug) {
+                    Utils::addErrorMessage($e->getMessage());
+                }
+            }
+    
+            $this->generateView("OrderView.tpl");
+      
+           
+      
+       
     }
+    
 
     public function generateView($page) {
         App::getSmarty()->assign('user', SessionUtils::loadObject("user", true));

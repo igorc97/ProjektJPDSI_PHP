@@ -18,7 +18,9 @@
     <header id="header" class="alt">
         <h1><a href="{rel_url action = 'main'}">Księgarnia</a></h1>
         <br/>
+        {if count($conf->roles)>0}
         Zalogowany użytkownik: {$user->login}
+        {/if}
         <nav id="nav">
             <ul>
                 <li><a href="{rel_url action = 'main'}">Strona główna</a></li>

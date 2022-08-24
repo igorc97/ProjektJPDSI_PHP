@@ -1,40 +1,22 @@
 {extends file="main.tpl"}
 {block name=content}
-    <br>
-    <h1 style="text-align: center">Tu znajdziesz swoje ostatnie zamówienia</h1>
-    <br>
-    <br>
-    <div class="table-wrapper">
-        <table class="alt">
-            <thead>
-            <tr>
-                <th>Nr. zamówienia</th>
-                <th>Data zamówienia</th>
-                <th>Data odbioru</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-
-            </tbody>
-            <tfoot>
-            <tr>
-                <td colspan="2"></td>
-
-            </tr>
-            </tfoot>
-        </table>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    </div>
-
+<section>
+<div style="text-align: center;">
+    <h2>Dziękujemy za złożenie zamówienia</h2>
+</div>
+<div style="text-align: center;">
+    <h3>Twoja książka została wysłana i już do Ciebie zmierza</h3>
+</div>
+<div style="text-align: center;">
+    <h2>Spodziewaj się jej: {$dateOfRec}</h2>
+</div>
+<p style="margin-left:45%; margin-right:50%;">
+<a href="{url action = 'bookList'}" class="button primary" style="position: center;">Powrót</a>
+</p>
+</section>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 {/block}

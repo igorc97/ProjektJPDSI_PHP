@@ -18,6 +18,8 @@ Utils::addRoute('registerShow', 'RegistrationCtrl');
 //store - booklist, bookinfo
 Utils::addRoute('bookList', 'StoreCtrl', ['1', '2']);
 Utils::addRoute('bookInfo', 'StoreCtrl', ['1', '2']);
+//store - buy
+Utils::addRoute('buy', 'StoreCtrl', ['1','2']);
 
 //bookadd,bookremove,bookedit
 

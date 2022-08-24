@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-08-23 13:49:44
+/* Smarty version 4.1.0, created on 2022-08-24 14:52:04
   from 'C:\xampp\htdocs\projektPHP\app\views\templates\Main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6304bed876b7f8_17008667',
+  'unifunc' => 'content_63061ef4c202b7_30677732',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bf2ed4c4a68c2b9b3794e112492f54132f38f6f7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projektPHP\\app\\views\\templates\\Main.tpl',
-      1 => 1661255245,
+      1 => 1661345510,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6304bed876b7f8_17008667 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63061ef4c202b7_30677732 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -46,8 +46,10 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
         <h1><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'main'),$_smarty_tpl ) );?>
 ">Księgarnia</a></h1>
         <br/>
+        <?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
         Zalogowany użytkownik: <?php echo $_smarty_tpl->tpl_vars['user']->value->login;?>
 
+        <?php }?>
         <nav id="nav">
             <ul>
                 <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'main'),$_smarty_tpl ) );?>
@@ -97,7 +99,7 @@ register" class="button primary">Zarejestruj się</a></li>
         </ul>
     </section>
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9299749496304bed8767dc5_87469643', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_113201893863061ef4c1c831_87690843', 'content');
 ?>
 
     <!-- Main -->
@@ -238,12 +240,12 @@ store" class="button alt">Przejdź dalej</a></li>
 </body>
 </html><?php }
 /* {block 'content'} */
-class Block_9299749496304bed8767dc5_87469643 extends Smarty_Internal_Block
+class Block_113201893863061ef4c1c831_87690843 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_9299749496304bed8767dc5_87469643',
+    0 => 'Block_113201893863061ef4c1c831_87690843',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
