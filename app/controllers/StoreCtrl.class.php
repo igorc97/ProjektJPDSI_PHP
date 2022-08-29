@@ -126,13 +126,25 @@ public function action_bookInfo(){
                 }
             }
     
-            $this->generateView("OrderView.tpl");
-      
-           
-      
-       
+            $this->generateView("OrderView.tpl");  
     }
     
+    public function action_bookDelete(){
+        if ($this -> getURL()) {
+            //print("hehe");
+            try {
+                App::getDB()->delete("book", [
+                    "idBook" => $this->book->id_book
+                ]);
+                Utils::addInfoMessage('Usunięto rekord o id '.$this->book->id_book.' z systemu');
+            } catch (\PDOException $e) {
+                Utils::addErrorMessage('Wystąpił błąd podczas usuwania rekordu');
+                if (App::getConf()->debug){ Utils::addErrorMessage($e->getMessage()); }
+            }
+        }
+        App::getRouter()->forwardTo('bookList');
+     }
+
 
     public function generateView($page) {
         App::getSmarty()->assign('user', SessionUtils::loadObject("user", true));

@@ -23,9 +23,10 @@ Utils::addRoute('bookInfo', 'StoreCtrl', ['1', '2']);
 //store - buy
 Utils::addRoute('buy', 'StoreCtrl', ['1','2']);
 
-//bookadd,bookremove,bookedit
-
-//useroder
+//bookadd,bookremove,userremove
+Utils::addRoute('userDelete', 'AdminCtrl', ['1']); //user remove
+Utils::addRoute('bookDelete', 'StoreCtrl', ['1']); //book remove
+//userorder
 Utils::addRoute('yourOrder', 'OrderCtrl', ['1','2']); //all orders owned by user
 Utils::addRoute('orderInfo', 'OrderCtrl', ['1','2']); //info about selected order
 //administration

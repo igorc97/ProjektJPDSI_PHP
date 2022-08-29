@@ -87,6 +87,22 @@ class AdminCtrl
         }
      }
 
+     public function action_userDelete(){
+        if ($this -> getURL()) {
+            //print("hehe");
+            try {
+                App::getDB()->delete("user", [
+                    "idUser" => $this->user->id_user
+                ]);
+                Utils::addInfoMessage('Usunięto użytkownika o id '.$this->user->id_user.' z systemu');
+            } catch (\PDOException $e) {
+                Utils::addErrorMessage('Wystąpił błąd podczas usuwania rekordu');
+                if (App::getConf()->debug){ Utils::addErrorMessage($e->getMessage()); }
+            }
+        }
+        App::getRouter()->forwardTo('userList');
+     }
+
     public function generateView($page) {
         App::getSmarty()->assign('user', SessionUtils::loadObject("user", true));
         App::getSmarty()->display($page);
