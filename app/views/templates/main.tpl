@@ -31,7 +31,9 @@
                         <li><a href="contact.html">Kontakt</a></li>
                         <li><a href="{rel_url action='bookList'}">Sklep</a></li>
                         <li><a href="{rel_url action='yourOrder'}">Twoje zamówienia</a></li>
-                      {if {$user->Role_idRole} == "1"}  <li><a href="{rel_url action='allOrders'}">Zamówienia</a></li>
+                      {if {$user->Role_idRole} == "1"}
+                        <li><a href="{rel_url action='allOrders'}">Zamówienia</a></li>
+                        <li><a href="{rel_url action='userList'}">Lista użytkowników</a></li>
                       {/if}
                            
                         

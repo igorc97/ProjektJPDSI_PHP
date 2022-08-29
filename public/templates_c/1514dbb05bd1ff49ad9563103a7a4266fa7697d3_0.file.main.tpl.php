@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-08-29 14:38:06
+/* Smarty version 4.1.0, created on 2022-08-29 15:02:18
   from 'C:\xampp\htdocs\projektPHP\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_630cb32e4c87e4_18837183',
+  'unifunc' => 'content_630cb8dab16092_01721035',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1514dbb05bd1ff49ad9563103a7a4266fa7697d3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projektPHP\\app\\views\\templates\\main.tpl',
-      1 => 1661776671,
+      1 => 1661778080,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_630cb32e4c87e4_18837183 (Smarty_Internal_Template $_smarty_tpl) {
+function content_630cb8dab16092_01721035 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -65,9 +65,12 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ">Twoje zamówienia</a></li>
                       <?php ob_start();
 echo $_smarty_tpl->tpl_vars['user']->value->Role_idRole;
-$_prefixVariable1 = ob_get_clean();
-if ($_prefixVariable1 == "1") {?>  <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'allOrders'),$_smarty_tpl ) );?>
+$_prefixVariable11 = ob_get_clean();
+if ($_prefixVariable11 == "1") {?>
+                        <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'allOrders'),$_smarty_tpl ) );?>
 ">Zamówienia</a></li>
+                        <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'userList'),$_smarty_tpl ) );?>
+">Lista użytkowników</a></li>
                       <?php }?>
                            
                         
@@ -99,7 +102,7 @@ register" class="button primary">Zarejestruj się</a></li>
         </ul>
     </section>
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_546708320630cb32e4c4e96_72851332', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_119894316630cb8dab124a9_04697286', 'content');
 ?>
 
     <!-- Main -->
@@ -240,12 +243,12 @@ store" class="button alt">Przejdź dalej</a></li>
 </body>
 </html><?php }
 /* {block 'content'} */
-class Block_546708320630cb32e4c4e96_72851332 extends Smarty_Internal_Block
+class Block_119894316630cb8dab124a9_04697286 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_546708320630cb32e4c4e96_72851332',
+    0 => 'Block_119894316630cb8dab124a9_04697286',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

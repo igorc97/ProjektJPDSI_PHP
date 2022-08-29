@@ -8,64 +8,87 @@ use core\Utils;
 use core\ParamUtils;
 use core\SessionUtils;
 
-use app\forms\BookEditForm;
+use app\forms\PersonSearchForm;
 
 class AdminCtrl
 {
-    private $book;
+    private $user;
     private $page;
     private $recordsOnPage = 10;
     
     public function __construct() {
-        $this->book = new BookInfoForm();
+        $this->user = new PersonSearchForm();
     }
     
     public function getForm($source){
         if($source == "userList"){
-            $this->book->title = ParamUtils::getFromRequest('name');
+            $this->user->name = ParamUtils::getFromRequest('name');
         }
     
     }
     
     public function getURL(){
-        $this->book->id_book = ParamUtils::getFromCleanURL(1, true, 'Błąd');
+        $this->user->id_user = ParamUtils::getFromCleanURL(1, true, 'Błąd');
     
         return !App::getMessages()->isError();
     }
     
     public function action_userList(){
          # Get params
-         $this -> getForm("book");
+         $this -> getForm("user");
                 
          # Set filter params
          $filter_params = [];
-         if (isset($this->book->title) && strlen($this->book->title) > 0) {
-             $filter_params['title[~]'] = $this->book->title.'%';
+         if (isset($this->user->id_user) && strlen($this->user->id_user) > 0) {
+             $filter_params['idUser[~]'] = $this->user->id_user.'%';
          }
-         App::getSmarty()->assign('searchForm', $this->book);
+         App::getSmarty()->assign('searchForm', $this->user);
              
          # Prepare $where for DB operation
-         $order = ["title"];
+         $order = ["idUser"];
          $where = FunctionsDB::prepareWhere($filter_params, $order);
          
          # Get number of found books 
-         $numRecords = FunctionsDB::countRecords("book", $where); 
+         $numRecords = FunctionsDB::countRecords("user", $where); 
          App::getSmarty()->assign("numRecords", $numRecords);
          
          if($numRecords > 0){
              # Get page
-             $this->page = FunctionsDB::getPage($numRecords, $this->booksOnPage);
+             $this->page = FunctionsDB::getPage($numRecords, $this->recordsOnPage);
     
              # Get offset of books
-             $offset = $this->booksOnPage*($this->page-1);
-             $where["LIMIT"] = [$offset, $this->booksOnPage];
+             $offset = $this->recordsOnPage*($this->page-1);
+             $where["LIMIT"] = [$offset, $this->recordsOnPage];
     
              # Get book titles list from DB
-             $column = ["idBook", "title"];
-             App::getSmarty()->assign('records', FunctionsDB::getRecords("select", "book", null, $column, $where));
+             $column = ["idUser", "name", "surname"];
+             App::getSmarty()->assign('records', FunctionsDB::getRecords("select", "user", null, $column, $where));
          }
          
         # Redirect to page
-         $this->generateView("BookList.tpl");
+         $this->generateView("usersList.tpl");
+    }
+
+    public function action_userInfo(){
+        if($this -> getURL()){   
+            # Check if user exists
+            if(!App::getDB()->has("user", ["idUser" => $this->user->id_user])){
+                App::getRouter()->redirectTo("userList");
+            }
+            # Get order info    
+            $colum = ["name", "surname", "birthdate", "email", "login", "pass"];
+            $where = ["idUser" => $this->user->id_user];
+            App::getSmarty()->assign('userek', FunctionsDB::getRecords("get", "user", null, $colum,$where));
+            
+            # Redirect to page
+            $this->generateView("userInfo.tpl");
+        }else{
+            App::getRouter()->redirectTo("userList");
+        }
+     }
+
+    public function generateView($page) {
+        App::getSmarty()->assign('user', SessionUtils::loadObject("user", true));
+        App::getSmarty()->display($page);
     }
 }
