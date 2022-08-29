@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-08-24 14:52:04
+/* Smarty version 4.1.0, created on 2022-08-29 14:37:52
   from 'C:\xampp\htdocs\projektPHP\app\views\templates\Main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_63061ef4c202b7_30677732',
+  'unifunc' => 'content_630cb320b63647_51284335',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bf2ed4c4a68c2b9b3794e112492f54132f38f6f7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projektPHP\\app\\views\\templates\\Main.tpl',
-      1 => 1661345510,
+      1 => 1661776671,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63061ef4c202b7_30677732 (Smarty_Internal_Template $_smarty_tpl) {
+function content_630cb320b63647_51284335 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -61,16 +61,16 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
                         <li><a href="contact.html">Kontakt</a></li>
                         <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'bookList'),$_smarty_tpl ) );?>
 ">Sklep</a></li>
-                        <li>
-                            <a href="#">Baza</a>
-                            <ul>
-                                <li><a href="ResultsCtrl.class.php">Lista</a></li>
-                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-order">Twoje zamówienia</a></li>
-                                <li><a href="#">Option Three</a></li>
-                                <li><a href="#">Option Four</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'yourOrder'),$_smarty_tpl ) );?>
+">Twoje zamówienia</a></li>
+                      <?php ob_start();
+echo $_smarty_tpl->tpl_vars['user']->value->Role_idRole;
+$_prefixVariable1 = ob_get_clean();
+if ($_prefixVariable1 == "1") {?>  <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['rel_url'][0], array( array('action'=>'allOrders'),$_smarty_tpl ) );?>
+">Zamówienia</a></li>
+                      <?php }?>
+                           
+                        
                     </ul>
                 </li>
 
@@ -99,7 +99,7 @@ register" class="button primary">Zarejestruj się</a></li>
         </ul>
     </section>
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_113201893863061ef4c1c831_87690843', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1020078443630cb320b5fbf4_48918591', 'content');
 ?>
 
     <!-- Main -->
@@ -179,7 +179,7 @@ store" class="button alt">Przejdź dalej</a></li>
     <section id="cta">
 
         <h2>Zarejestruj się do naszego newsletter'a!</h2>
-        <p>Bądź na bieżąco ze wszystkimi nowościami jakie są w ofercie księgarni. Osoby, które się zarejestrowały otrzymają 10% zniżki na pierwsze zamówienie.</p>
+        <p>Bądź na bieżąco ze wszystkimi nowościami jakie są w ofercie księgarni.</p>
 
         <form>
             <div class="row gtr-50 gtr-uniform">
@@ -240,12 +240,12 @@ store" class="button alt">Przejdź dalej</a></li>
 </body>
 </html><?php }
 /* {block 'content'} */
-class Block_113201893863061ef4c1c831_87690843 extends Smarty_Internal_Block
+class Block_1020078443630cb320b5fbf4_48918591 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_113201893863061ef4c1c831_87690843',
+    0 => 'Block_1020078443630cb320b5fbf4_48918591',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

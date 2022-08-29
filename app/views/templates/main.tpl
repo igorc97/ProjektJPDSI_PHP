@@ -30,15 +30,11 @@
                         <li><a href="generic.html">Informacje</a></li>
                         <li><a href="contact.html">Kontakt</a></li>
                         <li><a href="{rel_url action='bookList'}">Sklep</a></li>
-                        <li>
-                            <a href="#">Baza</a>
-                            <ul>
-                                <li><a href="ResultsCtrl.class.php">Lista</a></li>
-                                <li><a href="{$conf->action_root}order">Twoje zamówienia</a></li>
-                                <li><a href="#">Option Three</a></li>
-                                <li><a href="#">Option Four</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="{rel_url action='yourOrder'}">Twoje zamówienia</a></li>
+                      {if {$user->Role_idRole} == "1"}  <li><a href="{rel_url action='allOrders'}">Zamówienia</a></li>
+                      {/if}
+                           
+                        
                     </ul>
                 </li>
 
@@ -136,7 +132,7 @@
     <section id="cta">
 
         <h2>Zarejestruj się do naszego newsletter'a!</h2>
-        <p>Bądź na bieżąco ze wszystkimi nowościami jakie są w ofercie księgarni. Osoby, które się zarejestrowały otrzymają 10% zniżki na pierwsze zamówienie.</p>
+        <p>Bądź na bieżąco ze wszystkimi nowościami jakie są w ofercie księgarni.</p>
 
         <form>
             <div class="row gtr-50 gtr-uniform">
