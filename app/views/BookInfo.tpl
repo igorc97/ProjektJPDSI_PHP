@@ -18,7 +18,8 @@
             <strong>Dostępność:</strong> {$book["availability"]} <br/>
             <strong>Opis:</strong> {$book["description"]} <br/>
         </p>
-        <a href="{url action = 'buy'}" class="button primary" style="position: center;">Zamów</a>
+        
+        <a onclick="confirmLink('{$conf->action_url}buy', 'Czy na pewno chcesz zamówić ten przemdmiot? ')" class="button primary" style="position: center;">Zamów</a>
 <a href="{url action = 'bookList'}" class="button primary" style="position: center;">Powrót</a>
     </section> 
 

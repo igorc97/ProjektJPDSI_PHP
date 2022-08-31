@@ -20,6 +20,8 @@ Utils::addRoute('registerShow', 'RegistrationCtrl');
 //store - booklist, bookinfo
 Utils::addRoute('bookList', 'StoreCtrl', ['1', '2']);
 Utils::addRoute('bookInfo', 'StoreCtrl', ['1', '2']);
+Utils::addRoute('moreInfo', 'StoreCtrl');
+Utils::addRoute('contact', 'StoreCtrl');
 //store - buy
 Utils::addRoute('buy', 'StoreCtrl', ['1','2']);
 
@@ -33,4 +35,4 @@ Utils::addRoute('orderInfo', 'OrderCtrl', ['1','2']); //info about selected orde
 Utils::addRoute('allOrders', 'OrderCtrl', ['1']); //all orders in the db
 Utils::addRoute('userList', 'AdminCtrl', ['1']);  //all users registered
 Utils::addRoute('userInfo', 'AdminCtrl', ['1']);  //see more details about user
-
+Utils::addRoute('addBook', 'BookAddCtrl', ['1']); //adding new book to store

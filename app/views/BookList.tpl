@@ -30,7 +30,7 @@
                         <tr>
                             <td style="width: 90%">{$r["title"]}</td>
                             <td style="width: 10%"><center><a href="{url action = 'bookInfo'}/{$r['idBook']}" class="pure-button pure-button-primary">Informacje</a></center></td>
-                            {if {$user->Role_idRole} == "1"}<td style="width: 10%"><center><a href="{url action = 'bookDelete'}/{$r['idBook']}" class="button primary">Usuń</a></center></td>{/if}
+                            {if {$user->Role_idRole} == "1"}<td style="width: 10%"><center><a onclick="confirmLink('{$conf->action_url}bookDelete/{$r['idBook']}', 'Czy na pewno chcesz usunąć rekord? ')" class="button primary">Usuń</a></center></td>{/if}
                         </tr>
                     {/strip}
                     {/foreach}

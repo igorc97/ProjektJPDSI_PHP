@@ -14,7 +14,8 @@
                             <td style="width: 90%">{$r["name"]}</td>
                             <td style="width: 90%">{$r["surname"]}</td>
                             <td style="width: 10%"><center><a href="{url action = 'userInfo'}/{$r['idUser']}" class="pure-button pure-button-primary">Informacje</a></center></td>
-                            <td style="width: 10%"><center><a href="{url action = 'userDelete'}/{$r['idUser']}" class="button primary">Usuń</a></center></td>
+                            <td style="width: 10%"><center><a onclick="confirmLink('{$conf->action_url}userDelete/{$r['idUser']}', 'Czy na pewno chcesz usunąć tego użytkownika? ')" class="button primary">Usuń</a></center></td>
+                            
                         </tr>
                     {/strip}
                     {/foreach}

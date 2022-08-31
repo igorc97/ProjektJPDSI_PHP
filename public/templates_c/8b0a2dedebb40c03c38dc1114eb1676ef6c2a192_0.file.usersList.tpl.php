@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-08-29 16:11:33
+/* Smarty version 4.1.0, created on 2022-08-31 13:16:39
   from 'C:\xampp\htdocs\projektPHP\app\views\usersList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_630cc915991fd7_05553868',
+  'unifunc' => 'content_630f43179585e5_77617071',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8b0a2dedebb40c03c38dc1114eb1676ef6c2a192' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projektPHP\\app\\views\\usersList.tpl',
-      1 => 1661782292,
+      1 => 1661942078,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_630cc915991fd7_05553868 (Smarty_Internal_Template $_smarty_tpl) {
+function content_630f43179585e5_77617071 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2132127347630cc91597f7c5_45627797', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1950935601630f43179469a2_90212636', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_2132127347630cc91597f7c5_45627797 extends Smarty_Internal_Block
+class Block_1950935601630f43179469a2_90212636 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_2132127347630cc91597f7c5_45627797',
+    0 => 'Block_1950935601630f43179469a2_90212636',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -64,9 +64,9 @@ $_smarty_tpl->tpl_vars['r']->do_else = false;
 </td><td style="width: 90%"><?php echo $_smarty_tpl->tpl_vars['r']->value["surname"];?>
 </td><td style="width: 10%"><center><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'userInfo'),$_smarty_tpl ) );?>
 /<?php echo $_smarty_tpl->tpl_vars['r']->value['idUser'];?>
-" class="pure-button pure-button-primary">Informacje</a></center></td><td style="width: 10%"><center><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'userDelete'),$_smarty_tpl ) );?>
-/<?php echo $_smarty_tpl->tpl_vars['r']->value['idUser'];?>
-" class="button primary">Usuń</a></center></td></tr>
+" class="pure-button pure-button-primary">Informacje</a></center></td><td style="width: 10%"><center><a onclick="confirmLink('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+userDelete/<?php echo $_smarty_tpl->tpl_vars['r']->value['idUser'];?>
+', 'Czy na pewno chcesz usunąć tego użytkownika? ')" class="button primary">Usuń</a></center></td></tr>
                     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>

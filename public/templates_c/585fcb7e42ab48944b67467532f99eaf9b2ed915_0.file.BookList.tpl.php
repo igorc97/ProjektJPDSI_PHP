@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-08-29 16:18:46
+/* Smarty version 4.1.0, created on 2022-08-31 12:23:58
   from 'C:\xampp\htdocs\projektPHP\app\views\BookList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_630ccac6d69b35_61620816',
+  'unifunc' => 'content_630f36be223105_01126646',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '585fcb7e42ab48944b67467532f99eaf9b2ed915' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projektPHP\\app\\views\\BookList.tpl',
-      1 => 1661782724,
+      1 => 1661941435,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_630ccac6d69b35_61620816 (Smarty_Internal_Template $_smarty_tpl) {
+function content_630f36be223105_01126646 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
@@ -31,19 +31,19 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 <br/>
 <br/>
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1502653624630ccac6d56825_66133327', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1939059850630f36be211181_52379227', 'content');
 ?>
 
 <br/><br/><br/><br/><br/><br/>
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_1502653624630ccac6d56825_66133327 extends Smarty_Internal_Block
+class Block_1939059850630f36be211181_52379227 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1502653624630ccac6d56825_66133327',
+    0 => 'Block_1939059850630f36be211181_52379227',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -87,9 +87,9 @@ $_smarty_tpl->tpl_vars['r']->do_else = false;
 " class="pure-button pure-button-primary">Informacje</a></center></td><?php ob_start();
 echo $_smarty_tpl->tpl_vars['user']->value->Role_idRole;
 $_prefixVariable2 = ob_get_clean();
-if ($_prefixVariable2 == "1") {?><td style="width: 10%"><center><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'bookDelete'),$_smarty_tpl ) );?>
-/<?php echo $_smarty_tpl->tpl_vars['r']->value['idBook'];?>
-" class="button primary">Usuń</a></center></td><?php }?></tr>
+if ($_prefixVariable2 == "1") {?><td style="width: 10%"><center><a onclick="confirmLink('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+bookDelete/<?php echo $_smarty_tpl->tpl_vars['r']->value['idBook'];?>
+', 'Czy na pewno chcesz usunąć rekord? ')" class="button primary">Usuń</a></center></td><?php }?></tr>
                     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>

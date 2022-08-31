@@ -145,6 +145,13 @@ public function action_bookInfo(){
         App::getRouter()->forwardTo('bookList');
      }
 
+    public function action_moreInfo(){
+        $this->generateView("moreInfo.tpl");
+    }
+
+    public function action_contact(){
+        $this->generateView("contact.tpl");
+    }
 
     public function generateView($page) {
         App::getSmarty()->assign('user', SessionUtils::loadObject("user", true));

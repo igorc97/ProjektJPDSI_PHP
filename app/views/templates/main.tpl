@@ -10,6 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{$conf->app_url}/assets/css/main.css" />
+    <script type="text/javascript" src="{$conf->app_url}/assets/js/functions.js"></script>
 </head>
 <body class="landing is-preload">
 <div id="page-wrapper">
@@ -27,13 +28,14 @@
                 <li>
                     <a href="#" class="icon solid fa-angle-down">Opcje</a>
                     <ul>
-                        <li><a href="generic.html">Informacje</a></li>
-                        <li><a href="contact.html">Kontakt</a></li>
+                        <li><a onclick="loadPage('main', '{url action = "moreInfo"}')">Informacje</a></li>
+                        <li><a onclick="loadPage('main', '{url action = "contact"}')">Kontakt</a></li>
                         <li><a href="{rel_url action='bookList'}">Sklep</a></li>
                         <li><a href="{rel_url action='yourOrder'}">Twoje zamówienia</a></li>
                       {if {$user->Role_idRole} == "1"}
                         <li><a href="{rel_url action='allOrders'}">Zamówienia</a></li>
                         <li><a href="{rel_url action='userList'}">Lista użytkowników</a></li>
+                        <li><a href="{rel_url action='addBook'}">Dodaj nowy tytuł</a></li>
                       {/if}
                            
                         
@@ -56,13 +58,17 @@
         <h2>Księgarnia</h2>
         <p>Zapraszamy do skorzystania z oferty księgarni!</p>
         <ul class="actions special">
+        {if count($conf->roles)==0}
             <li><a href="{$conf->action_root}register" class="button primary">Zarejestruj się</a></li>
-            <li><a href="generic.html" class="button">Dowiedz się więcej</a></li>
+        {/if}
+            <li><button class="button" onclick="loadPage('main', '{url action = "moreInfo"}')">Dowiedz się więcej</button></li>
         </ul>
     </section>
     {block name =content}{/block}
     <!-- Main -->
     <section id="main" class="container">
+
+    <p id="moreInfo"></p>
 
         <section class="box special">
             <header class="major">
@@ -109,7 +115,7 @@
                     <h3>Kontakt</h3>
                     <p>W razie problemów lub chęci uzyskania odpowiedzi na nurtujące pytanie skontaktuj się z nami!</p>
                     <ul class="actions special">
-                        <li><a href="contact.html" class="button alt">Przejdź dalej</a></li>
+                        <li><a onclick="loadPage('main', '{url action = "contact"}')" class="button alt">Przejdź dalej</a></li>
                     </ul>
                 </section>
 
@@ -121,7 +127,7 @@
                     <h3>Nasza oferta</h3>
                     <p>Zapoznaj sie z naszą ofertą! Dalej pracujemy nad pozyskaniem nowych treści.</p>
                     <ul class="actions special">
-                        <li><a href="{$conf->action_root}store" class="button alt">Przejdź dalej</a></li>
+                        <li><a href="{rel_url action='bookList'}" class="button alt">Przejdź dalej</a></li>
                     </ul>
                 </section>
 
@@ -170,6 +176,9 @@
 <script src="{$conf->app_url}/assets/js/breakpoints.min.js"></script>
 <script src="{$conf->app_url}/assets/js/util.js"></script>
 <script src="{$conf->app_url}/assets/js/main.js"></script>
+
+
+
 
 </body>
 </html>
