@@ -29,7 +29,7 @@
                     <a href="#" class="icon solid fa-angle-down">Opcje</a>
                     <ul>
                         <li><a onclick="loadPage('main', '{url action = "moreInfo"}')">Informacje</a></li>
-                        <li><a onclick="loadPage('main', '{url action = "contact"}')">Kontakt</a></li>
+                        <li><a onclick="loadPage('main', '{url action = "sendEmail"}')">Kontakt</a></li>
                         <li><a href="{rel_url action='bookList'}">Sklep</a></li>
                         <li><a href="{rel_url action='yourOrder'}">Twoje zamówienia</a></li>
                       {if {$user->Role_idRole} == "1"}

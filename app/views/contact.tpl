@@ -5,7 +5,7 @@
 			<p>Jeśli masz jakiekolwiek pytanie napisz do nas a my odpowiemy najszybciej jak to możliwe.</br>Dodatkowo możesz do nas zadzwonić.</p>
 		</header>
 		<div class="box">
-			<form method="post" action="#">
+			<form method="post" action="{$conf->action_root}sendEmail">
 				<div class="row gtr-50 gtr-uniform">
 					<div class="col-6 col-12-mobilep">
 						<input type="text" name="name" id="name" value="" placeholder="Imię" />

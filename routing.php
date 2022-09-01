@@ -36,3 +36,5 @@ Utils::addRoute('allOrders', 'OrderCtrl', ['1']); //all orders in the db
 Utils::addRoute('userList', 'AdminCtrl', ['1']);  //all users registered
 Utils::addRoute('userInfo', 'AdminCtrl', ['1']);  //see more details about user
 Utils::addRoute('addBook', 'BookAddCtrl', ['1']); //adding new book to store
+//info
+Utils::addRoute('sendEmail', 'EmailCtrl');
