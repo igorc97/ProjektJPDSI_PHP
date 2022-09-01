@@ -19,6 +19,7 @@ Utils::addRoute('register', 'RegistrationCtrl');
 Utils::addRoute('registerShow', 'RegistrationCtrl');
 //store - booklist, bookinfo
 Utils::addRoute('bookList', 'StoreCtrl', ['1', '2']);
+Utils::addRoute('bookListPart', 'StoreCtrl', ['1', '2']);
 Utils::addRoute('bookInfo', 'StoreCtrl', ['1', '2']);
 Utils::addRoute('moreInfo', 'StoreCtrl');
 Utils::addRoute('contact', 'StoreCtrl');
